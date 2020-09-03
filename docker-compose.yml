@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  wordpress:
+    image: localhost:5000/wordpress
+    build:
+      context: ./wordpress
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/fuse
+    ports:
+      - 80:80
+    volumes:
+      - ./wordpress/src:/var/www/html/wp-content
+    environment:
+      WORDPRESS_DB_HOST: "maria:3306"
+      WORDPRESS_DB_DATABASE: wordpress
+      WORDPRESS_DB_USER: maria
+      WORDPRESS_DB_PASSWORD: pass
+    depends_on:
+      - maria
+
+  maria:
+    image: mariadb:latest
+    volumes:
+      - ./maria/src:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=maria
+      - MYSQL_PASSWORD=pass
