@@ -1,12 +1,17 @@
-# wp-french-masters-gallary
+# php-web-wordpress-french-masters
 
 ## Description
 A wordpress inspired website, featuring modern french painters Renoir and Matisse.
 
-## Technologies
-- docker-compose
+## Tech stack
+- bash
 - wordpress
 - mariadb
+
+## Docker stack
+- docker-compose
+- mariadb:latest
+- wordpress:latest
 
 ## To run
 `sudo ./install.sh -u`
