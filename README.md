@@ -31,5 +31,8 @@ This will be the mount point for the volume.
 ## To stop
 `sudo ./install.sh -d`
 
+## To see help
+`sudo ./install.sh -h`
+
 ## Credits
 - https://github.com/mikesale/quickwp
